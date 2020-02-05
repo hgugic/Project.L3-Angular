@@ -1,0 +1,26 @@
+<div class="card mb-6">
+  <div class="card-img-wrapper">
+    <img class="card-img-top" src="{{maker.logoUrl || '../../../assets/maker.jpg'}}" alt="{{maker.name}}">
+    <ul class="list-inline member-icons animate text-center mt-2">
+
+      <li class="list-inline-item"><button class="btn btn-sm btn-primary" 
+        [routerLink]="['/vehicleMake/edit/', maker.id]"><i class="fa fa-edit"></i></button></li>
+
+      <li class="list-inline-item"><button class="btn btn-sm btn-primary"
+        [routerLink]="['/vehicleMake/', maker.id]"><i class="fa fa-info"></i></button></li>
+
+      <li class="list-inline-item">
+
+      <button type="button" class="btn btn-sm btn-danger" 
+      (click)="deleteMaker(maker.id)"><i class="fa fa-trash-o"></i></button>
+      </li>
+
+
+    </ul>
+  </div>
+  <div class="card-body p-1">
+    <h6 class="card-title text-centered mb-1">
+      {{maker.name}}, {{maker.country}}
+    </h6>
+  </div>
+</div>

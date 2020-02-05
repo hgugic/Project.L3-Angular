@@ -1,0 +1,61 @@
+<div class="container col-3">
+
+<form [formGroup]="makeForm" (ngSubmit)='createMake()'>
+  <h2 class="text-center text-primary">Add new vehicle maker</h2>
+  <hr>
+
+  <div class="form-group">
+    <input type="text" 
+    [ngClass]="{'is-invalid': makeForm.get('name').errors &&
+      makeForm.get('name').touched}"
+    class="form-control" 
+    formControlName=name  placeholder="Makers name">
+    <div class="invalid-feedback">Please choose a name</div>
+  </div>
+
+  <div class="form-group">
+    <input type="text" 
+    [ngClass]="{'is-invalid': makeForm.get('abrv').errors &&
+      makeForm.get('abrv').touched}"
+    class="form-control" 
+    formControlName=abrv  placeholder="Abrv makers name">
+    <div class="invalid-feedback">Please choose a name</div>
+  </div>
+
+  <div class="form-group">
+    <input 
+    [ngClass]="{'is-invalid': makeForm.get('founded').errors && 
+    makeForm.get('founded').touched}" class="form-control"
+      placeholder="founded" formControlName="founded" type="text" bsDatepicker [bsConfig]="bsConfig">
+    <div class="invalid-feedback" *ngIf="makeForm.get('founded').touched && makeForm.get('founded').hasError('required')">founded is required</div>
+  </div>
+
+  <div class="form-group">
+    <input type="text" 
+    [ngClass]="{'is-invalid': makeForm.get('city').errors &&
+      makeForm.get('city').touched}"
+    class="form-control" 
+    formControlName=city  placeholder="city">
+    <div class="invalid-feedback">city</div>
+  </div>
+
+  <div class="form-group">
+    <input type="text" 
+    [ngClass]="{'is-invalid': makeForm.get('country').errors &&
+      makeForm.get('country').touched}"
+    class="form-control" 
+    formControlName=country  placeholder="country">
+    <div class="invalid-feedback">country</div>
+  </div>
+
+  <div class="form-group text-center">
+    <button class="btn btn-success" [disabled]="!makeForm.valid" type="submit" [routerLink]="['/vehicleMake']">Create</button>
+    <button class="btn btn-default" type="button" [routerLink]="['/vehicleMake']">Cancel</button>
+  </div>
+
+
+
+</form>
+</div>
+<p>Form value: {{makeForm.value | json}}</p>
+<p>Form status: {{makeForm.status | json}}</p>

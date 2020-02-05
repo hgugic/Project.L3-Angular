@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+
+  <div class="container">
+  
+    <a class="navbar-brand" [routerLink]="['/home']" >Vehicles</a>
+  
+  
+  
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"  routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/vehicleMake']" >Makers</a>
+        </li>
+        <li class="nav-item"  routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/vehicleModel']">Models</a>
+        </li>
+      </ul>
+  
+      <div class="dropdown" dropdown>
+        <span class="mr-1">
+        <img src="" alt="">
+        </span>
+        <a class="dropdown-toggle text-light" dropdownToggle><i class="fa fa-plus p-1"></i>NEW</a>
+      
+        <div class="dropdown-menu" *dropdownMenu>
+          <a class="dropdown-item" [routerLink]="['/create/vehicleMake']">
+            <i class="fa fa-industry mr-2"></i>New vehicle maker
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" [routerLink]="['/create/vehicleModel']">
+            <i class="fa fa-car mr-2"></i> New vehicle model
+          </a>
+        </div>
+      </div>
+  
+  </div>
+  </nav>

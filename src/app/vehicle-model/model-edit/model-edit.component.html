@@ -1,0 +1,88 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm-4">
+      <h1>models profile</h1>
+    </div>
+    <div class="col-sm-8">
+      <div *ngIf="editForm.dirty" class="alert alert-info">
+        <p><strong>Information:</strong> You have made changes. Any unsaved changes will be lost</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top img-thumbnail" src="{{'../../../assets/model.jpg'}}" alt="{{model.name}}">
+      </div>
+      <div class="card-body">
+
+        <div>
+          <strong>Name:</strong>
+          <p>{{model.name}}</p>
+        </div>
+
+        <div>             
+          <strong>Abrv:</strong>
+          <p>{{model.abrv}}</p>
+        </div>
+
+        <div>
+          <strong>Year:</strong>
+          <p>{{model.year| date: 'yyyy'}}</p>
+        </div>
+      
+        <div>
+        <strong>Type:</strong>
+        <p>{{model.type}}</p>      
+       </div>
+
+       <div>             
+          <strong>Engine:</strong>
+          <p>{{model.engine}}</p>
+        </div>
+
+      </div>
+      <div class="card-footer">
+          <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success btn-block">Save Changes</button>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="container-form">
+            <form #editForm="ngForm" id="editForm" (ngSubmit)="updateModel()">
+
+              <div class="form-group">
+                <label for="maker">Show: </label>
+                <select class="form-control ml-1" id="makeId" 
+                [(ngModel)]="model.makeId" name="makeId">
+                  <option *ngFor="let maker of makers" [value]="maker.id">
+                    {{maker.name}}
+                  </option>
+                </select>
+              </div>
+
+              <label>Name: </label>
+              <input class="form-control" type="text" name="name" [(ngModel)]="model.name">
+              <br />
+
+              <label>Abrv: </label>
+              <input class="form-control" type="text" name="abrv" [(ngModel)]="model.abrv">
+              <br />
+
+              <label>Year: </label>
+              <input class="form-control" type="text" name="founded" [(ngModel)]="model.year" 
+               bsDatepicker [bsConfig]="bsConfig">
+              <br />
+
+              <label>Type: </label>
+              <input class="form-control" type="text" name="city" [(ngModel)]="model.type">
+              <br />
+
+              <label>Engine: </label>
+              <input class="form-control" type="text" name="country" [(ngModel)]="model.engine">
+              <br />
+
+            </form>
+      </div>
+    </div>
+  </div>
+</div>

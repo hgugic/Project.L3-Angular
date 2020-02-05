@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+      <div class="col-4">
+        <div class="card">
+          <img class="card-img-top img-thumbnail" src="{{'../../../assets/model.jpg'}}" alt="{{model.name}}">
+        </div>
+        
+      </div>
+  
+      <div class="col-4">
+        <div class="container">
+  
+          <div class="card-body">
+
+
+            <div>
+              <p>
+              <strong>Name:</strong> {{model.name}}
+              </p>
+            </div>
+    
+            <div>
+              <p>
+              <strong>Abrv:</strong> {{model.abrv}}
+              </p>
+            </div>
+    
+            <div>
+              <p>
+              <strong>Year:</strong> {{model.year | date: 'yyyy'}}
+              </p>
+            </div>
+          
+            <div>
+              <p>
+              <strong>Type:</strong> {{model.type}}
+              </p>
+            </div>
+  
+            <div>
+              <p>
+              <strong>Engine:</strong> {{model.engine}}
+              </p>
+            </div>
+
+            <div>
+              <p>
+              <strong>Descritpion:</strong> {{model.description}}
+              </p>
+            </div>
+    
+          </div>
+          <div class="col-2"></div>
+        </div>
+    </div>
+  </div>

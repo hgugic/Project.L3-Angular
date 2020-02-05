@@ -1,0 +1,86 @@
+<div class="container col-3" >
+
+  <form [formGroup]="modelForm" (ngSubmit)="createModel()" >
+    <h2 class="text-center text-primary">Add new vehicle model</h2>
+    <hr>
+
+    <div class="form-group">
+    <select [ngClass]="{'is-invalid': modelForm.get('makeId').errors &&
+    modelForm.get('makeId').touched}" class="form-control" id="makeId" formControlName=makeId>
+    <option value="" disabled selected>Maker</option>
+      <option *ngFor="let maker of makers" [value]="maker.id">
+        {{maker.name}}
+      </option>
+    </select>
+  </div>
+
+  
+    <div class="form-group">
+      <input type="text" 
+      [ngClass]="{'is-invalid': modelForm.get('name').errors &&
+        modelForm.get('name').touched}"
+      class="form-control" 
+      formControlName=name  placeholder="Name">
+      <div class="invalid-feedback">Please choose a name</div>
+    </div>
+  
+    <div class="form-group">
+      <input type="text" 
+      [ngClass]="{'is-invalid': modelForm.get('abrv').errors &&
+        modelForm.get('abrv').touched}"
+      class="form-control" 
+      formControlName=abrv  placeholder="Name abrv.">
+      <div class="invalid-feedback">Please choose a name</div>
+    </div>
+  
+    <div class="form-group">
+      <input 
+      [ngClass]="{'is-invalid': modelForm.get('year').errors && 
+      modelForm.get('year').touched}" class="form-control"
+        placeholder="year" formControlName="year" type="text" bsDatepicker [bsConfig]="bsConfig">
+      <div class="invalid-feedback" *ngIf="modelForm.get('year').touched && modelForm.get('year').hasError('required')">model year is required</div>
+    </div>
+  
+    <div class="form-group">
+      <input type="text" 
+      [ngClass]="{'is-invalid': modelForm.get('type').errors &&
+        modelForm.get('type').touched}"
+      class="form-control" 
+      formControlName=type  placeholder="type">
+      <div class="invalid-feedback">Type</div>
+    </div>
+  
+    <div class="form-group">
+      <input type="text" 
+      [ngClass]="{'is-invalid': modelForm.get('engine').errors &&
+        modelForm.get('engine').touched}"
+      class="form-control" 
+      formControlName=engine  placeholder="engine">
+      <div class="invalid-feedback">engine</div>
+    </div>
+
+
+    <div class="form-group">
+      <textarea
+      [ngClass]="{'is-invalid': modelForm.get('description').errors &&
+        modelForm.get('description').touched}"
+      class="form-control" 
+      formControlName=description  placeholder="description"> </textarea>
+      <div class="invalid-feedback">description</div>
+    </div>
+  
+
+
+    <div class="form-group text-center">
+      <button class="btn btn-success" [disabled]="!modelForm.valid" type="submit"
+      [routerLink]="['/vehicleModel']">Create</button>
+      <button class="btn btn-default" type="button" [routerLink]="['/vehicleModel']">Cancel</button>
+    </div>
+  
+  
+  
+  </form>
+  </div>
+  <p>Form value: {{modelForm.value | json}}</p>
+  <p>Form status: {{modelForm.status | json}}</p>
+  

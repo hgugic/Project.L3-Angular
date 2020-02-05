@@ -1,0 +1,9 @@
+.container-form {
+    width: 450px;
+    clear: both;
+  }
+  
+  .container-form input {
+    width: 100%;
+    clear: both;
+  }

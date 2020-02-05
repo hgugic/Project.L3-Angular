@@ -1,0 +1,79 @@
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-sm-4">
+        <h1>Makers profile</h1>
+      </div>
+      <div class="col-sm-8">
+        <div *ngIf="editForm.dirty" class="alert alert-info">
+          <p><strong>Information:</strong> You have made changes. Any unsaved changes will be lost</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <img class="card-img-top img-thumbnail" src="{{maker.logoUrl || '../../../assets/maker.jpg'}}" alt="{{maker.city}}">
+        </div>
+        <div class="card-body">
+
+          <div>
+            <strong>Name:</strong>
+            <p>{{maker.name}}</p>
+          </div>
+
+          <div>             
+            <strong>Abrv:</strong>
+            <p>{{maker.abrv}}</p>
+          </div>
+
+          <div>
+            <strong>Founded:</strong>
+            <p>{{maker.founded | date: 'yyyy'}}</p>
+          </div>
+        
+          <div>
+          <strong>Last active:</strong>
+          <p>{{maker.city}}</p>      
+         </div>
+
+         <div>             
+            <strong>Country:</strong>
+            <p>{{maker.country}}</p>
+          </div>
+
+        </div>
+        <div class="card-footer">
+            <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success btn-block">Save Changes</button>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <div class="container-form">
+              <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMaker()">
+
+                <label>Maker's name: </label>
+                <input class="form-control" type="text" name="name" [(ngModel)]="maker.name">
+                <br />
+
+                <label>Abrv: </label>
+                <input class="form-control" type="text" name="abrv" [(ngModel)]="maker.abrv">
+                <br />
+
+                <label>Founded: </label>
+                <input class="form-control" type="text" name="founded" [(ngModel)]="maker.founded" 
+                 bsDatepicker [bsConfig]="bsConfig">
+                <br />
+
+                <label>City: </label>
+                <input class="form-control" type="text" name="city" [(ngModel)]="maker.city">
+                <br />
+
+                <label>Country: </label>
+                <input class="form-control" type="text" name="country" [(ngModel)]="maker.country">
+                <br />
+
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
